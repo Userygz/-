@@ -1,0 +1,55 @@
+**************************************************************************************
+git init     //创建.git目录
+pwd     //显示当前的目录
+git add readme.txt     //添加readme.txt到暂存区(没有反应就是成功)
+git commit -m '可修改的注释'    //把文件提交到仓库
+git status     //查看是否还有文件未提交
+git diff readme.txt     //查看readme.txt 的改动
+git log     //显示从最近到最远的显示日志(按q退出到原始的Git命令行界面)
+git log --pretty=oneline     //减少显示的无用信息（主要看注释）
+git reset --hard HEAD^     //回退一个版本
+git reset --hard HEAD~x     //回退x个版本
+cat readme.txt     //查看readme.txt的内容
+git reflog     //获取历史版本号
+git reset --hard 版本号     //回退至指定版本
+git checkout --readme.txt     //把readme.txt文件在工作区做的修改全部撤销
+git checkout  readme.txt     //创建分支
+**************************************************************************************
+rm b.txt     //在文件目录删除b.txt
+git remote add origin https://github.com/...
+git push origin master        //把当前分支master推送到远程
+git push -u origin master      //加上了–u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来
+**************************************************************************************
+git branch     //查看分支并列出所有的分支，当前分支前面添加一个星号
+git branch dev     //创建dev分支
+git checkout dev     //切换到dev分支
+git checkout -b dev     //创建dev分支并切换到dev分支上(加上–b参数表示创建并切换)
+git merge dev     //合并dev分支到当前分支上
+git branch –d dev     //删除dev分支
+**************************************************************************************
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，其中<<<HEAD是指主分支修改的内容，>>>>>dev 是指dev上修改的内容
+
+通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，可使用带参数 –no-ff来禁用”Fast forward”模式。
+
+分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，dev分支代码可以合并到主分支master上来。
+**************************************************************************************
+git stash     //保存工作现场
+git stash list     //查看工作现场
+git stash apply     //恢复工作现场，stash内容并不删除，你需要使用命令git stash drop来删除。
+git stash pop     //恢复的同时把stash内容也删除
+**************************************************************************************
+git remote     //查看远程库的信息
+git remote –v     //查看远程库的详细信息
+**************************************************************************************
+//常用命令
+git clone https://github.com/...     //把远程的库克隆到当前的本地文件夹
+git checkout –b dev origin/dev      //创建本地dev分支,小伙伴们就可以在dev分支上做开发了
+git add readme.txt     //添加readme.txt到暂存区(没有反应就是成功)
+git commit -m '可修改的注释'    //把文件提交到仓库
+git push origin master        //把当前分支master推送到远程
+git pull     //把最新的提交从origin/dev抓下来，然后在本地合并，解决冲突，再推送(若仍然失败，则根据提示，设置dev和origin/dev的链接)（合并若有冲突，需要手动解决，解决的方法和分支管理中的 解决冲突完全一样。解决后，提交，再push）
+**************************************************************************************
+
+
+
+
